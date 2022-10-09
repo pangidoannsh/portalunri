@@ -1,0 +1,24 @@
+<div className={`flex items-center md:gap-x-3 gap-x-2 ${!open && 'text-center px-1'}`}>
+                            {/* photo */}
+                            <div className="avatar">
+                                <div className="md:w-14 w-10 rounded-full ring ring-offset-base-100 ring-primary-blue ring-offset-2 ">
+                                    <img src={props.user.img} />
+                                </div>
+                            </div>
+                            <div className={`${!show && 'hidden'}`}>
+                                {/* Name */}
+                                <div className="dropdown dropdown-hover">
+                                    <div tabIndex={0} className='text-primary-blue font-semibold md:text-base text-xs leading-tight'>
+                                        {cutText(props.user.name)}
+                                    </div>
+                                    {/* Complete Name */}
+                                    <div tabIndex={0} className="dropdown-content menu p-2 shadow
+                                 bg-primary-blue bg-opacity-10 glass text-primary-blue rounded-lg ">
+                                        <div>{props.user.name}</div>
+                                    </div>
+                                </div>
+                                {/* NIM */}
+                                <div className='text-primary-blue font-normal md:text-sm text-xs mt-1'>{props.user.nim}</div>
+                            </div>
+
+                        </div>
