@@ -1,9 +1,16 @@
-
+import Navbar from '../components/Navbar'
+import TopNavBar from '../components/TopNavBar'
 
 export default function Krs() {
     return (
-        <div className='m-4 flex-1' >
-            <h1 className='text-4xl font-semibold'>Kartu Rencana Studi</h1>
-        </div >
+        <div className='flex min-h-screen bg-body'>
+            <Navbar />
+            <div className='flex-1' >
+                <TopNavBar />
+                <div className="lg:p-6 p-3">
+                    <h1 className='text-4xl font-semibold'>Kartu Rencana Studi</h1>
+                </div>
+            </div >
+        </div>
     )
 }
