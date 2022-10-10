@@ -1,17 +1,24 @@
-import { useEffect } from "react"
+import { useState } from "react"
 import MoreLink from "../components/MoreLink";
 import ProgresBar from "../components/ProgresBar";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from "../components/Navbar";
 import TopNavBar from "../components/TopNavBar";
-
+import LineChart from "../components/LineChart";
 
 export default function Home() {
     AOS.init();
-    useEffect(() => {
-        document.title = 'Portal Akademik UNRI'
-    }, []);
+    document.title = 'Portal Akademik UNRI'
+    const storage = window.sessionStorage
+
+    const [intro, setIntro] = useState(() => {
+        if (storage.getItem('intro')) {
+            return false
+        }
+        storage.setItem('intro', '0');
+        return true
+    });
     const studies = [
         { subject: 'Probabilitas dan Statistik', grade: 'A' },
         { subject: 'Jaringan Komputer', grade: 'A' },
@@ -77,7 +84,7 @@ export default function Home() {
                 <div className="lg:p-6 p-3">
                     {/* Row 1 */}
                     <div className="grid lg:grid-cols-2 lg:gap-6 gap-3">
-                        {/* Greeting and Description */}
+                        {/* Intro */}
                         <div data-aos="zoom-in" className="hidden md:block card rounded-[10px] bg-white p-4">
                             <h3 className="font-semibold text-xl">Selamat Datang PANGIDOAN NUGROHO SYAHPUTRA HARAHAP</h3>
                             <p className="text-sm text-justify mt-3 leading-6 indent-6">{paragraf}</p>
@@ -103,7 +110,6 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="">
                                 <MoreLink link={'/khs'} />
                             </div>
@@ -112,7 +118,7 @@ export default function Home() {
                     {/* Row 2 */}
                     <div className="grid grid-cols-12 lg:gap-6 gap-3 lg:py-6 py-3">
                         {/* Col 1 */}
-                        <div className="lg:col-span-7 col-span-12">
+                        <div className="lg:col-span-7 col-span-12 grid grid-cols-1 lg:gap-6 gap-3">
                             {/* IP dan IPK */}
                             <div data-aos="zoom-in" data-aos-delay="200" className="card rounded-[10px] bg-white p-4 ">
                                 <h3 className="font-semibold text-xl">IP dan IPK</h3>
@@ -139,10 +145,19 @@ export default function Home() {
                                     </tbody>
                                 </table>
                             </div>
+                            {/* Line Chart */}
+                            <div data-aos="zoom-in" data-aos-delay="300" data-aos-once='true' data-aos-offset="0"
+                                className="card rounded-[10px] bg-white p-4 ">
+                                <h3 className="font-semibold text-xl">Perkembangan Studi per Semester - IP dan IPK</h3>
+                                <div className="mt-6">
+                                    <LineChart dataset={gradePoints} />
+                                </div>
+                            </div>
+
                         </div>
                         <div className="lg:col-span-5 col-span-12">
                             {/* Jadwal Mahasiswa */}
-                            <div data-aos="zoom-in" data-aos-delay="300" className="card rounded-[10px] bg-white p-4">
+                            <div data-aos="zoom-in" data-aos-once="true" data-aos-delay="250" className="card rounded-[10px] bg-white p-4">
                                 <h3 className="font-semibold text-xl">Jadwal Mahasiswa</h3>
                                 <div className="mt-6">
                                     <div className="text-primary-blue text-xl">Senin</div>

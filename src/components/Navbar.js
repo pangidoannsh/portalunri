@@ -109,13 +109,13 @@ export default function Navbar() {
                     </button>
                     {/* Logo */}
                     <div className={`flex lg:gap-x-3 gap-x-2 items-center md:h-[75px]
-                     ${isOpen ? 'md:py-3 md:px-6 p-3' : 'md:p-4 p-2'} justify-center`}>
+                     ${isOpen ? 'md:py-3 md:px-6 p-3' : 'md:p-4 p-2'} ${isShow && 'justify-center'}`}>
                         <div className='text-center'>
                             <img src={logo} className='md:w-11 w-9' />
                         </div>
                         <div className={`${!isShow && 'hidden'}`}>
                             <h1 className='lg:text-lg md:text-base uppercase text-md font-bold m-0 p-0'>Portal Akademik</h1>
-                            <p className='md:text-sm text-xs font-semibold  m-0 p-0'>Universitas Riau</p>
+                            <p className='md:text-sm text-xs font-semibold m-0 p-0'>Universitas Riau</p>
                         </div>
                     </div>
                     {/* Profile */}
