@@ -33,7 +33,7 @@ export const options = {
 };
 
 const LineChart = (props) => {
-
+    const widthWindow = window.innerWidth
     const labels = [];
     props.dataset.forEach(item => {
         labels.push(item.year)
@@ -58,7 +58,7 @@ const LineChart = (props) => {
     };
     return (
         <>
-            <Line options={options} data={data} />
+            <Line options={options} data={data} height={widthWindow <= 400 ? 300 : ''} />
         </>
     );
 }

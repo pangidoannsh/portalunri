@@ -146,18 +146,16 @@ export default function Home() {
                                 </table>
                             </div>
                             {/* Line Chart */}
-                            <div data-aos="zoom-in" data-aos-delay="300" data-aos-once='true' data-aos-offset="0"
+                            <div data-aos="zoom-in" data-aos-delay="250" data-aos-once='true' data-aos-ofset="100"
                                 className="card rounded-[10px] bg-white p-4 ">
                                 <h3 className="font-semibold text-xl">Perkembangan Studi per Semester - IP dan IPK</h3>
-                                <div className="mt-6">
-                                    <LineChart dataset={gradePoints} />
-                                </div>
+                                <LineChart dataset={gradePoints} />
                             </div>
 
                         </div>
                         <div className="lg:col-span-5 col-span-12">
                             {/* Jadwal Mahasiswa */}
-                            <div data-aos="zoom-in" data-aos-once="true" data-aos-delay="250" className="card rounded-[10px] bg-white p-4">
+                            <div data-aos="zoom-in" data-aos-once="true" data-aos-delay="300" className="card rounded-[10px] bg-white p-4">
                                 <h3 className="font-semibold text-xl">Jadwal Mahasiswa</h3>
                                 <div className="mt-6">
                                     <div className="text-primary-blue text-xl">Senin</div>
